@@ -3,6 +3,7 @@ import 'package:bmn_flutter/account_center.dart';
 import 'package:bmn_flutter/coin.dart';
 import 'package:bmn_flutter/BookMark.dart';
 import 'package:bmn_flutter/home.dart';
+import 'package:bmn_flutter/widget/text_style.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,10 +20,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        highlightColor: const Color.fromRGBO(134, 43, 186, 1),
+        highlightColor: const Color.fromRGBO(50, 53, 50, 1),
         useMaterial3: true,
         primaryColor: const Color.fromRGBO(209, 21, 181, 1),
-        primaryColorLight: const Color.fromRGBO(187, 240, 195, 1),
+        primaryColorLight: Colors.white,
 
         
       ),
@@ -52,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
       appBar: AppBar(
 
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Theme.of(context).highlightColor,
         elevation: 10,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
@@ -62,27 +63,30 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title,style: const TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
         actions:  const [
 
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Column(
-              children: [
-                Row(
+
+           Padding(
+             padding: EdgeInsets.only(top: 8.0),
+             child: Column(
                   children: [
-                    Text('Paid Coin'),
-                    SizedBox(width: 10,),
-                    Text('2000')
+                    Row(
+                      children: [
+                        CoinLabelText(text: 'Paid Coin'),
+                        SizedBox(width: 10,),
+                        CoinText(text: '2000')
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        CoinLabelText(text: 'Free Coin'),
+                        SizedBox(width: 10,),
+                        CoinText(text: '2000')
+                      ],
+                    ),
                   ],
-                ),
-                Row(
-                  children: [
-                    Text('Free Coin'),
-                    SizedBox(width: 10,),
-                    Text('2000')
-                  ],
-                ),
-              ],
-            ),
-          ),
+                             ),
+           ),
+
+
           SizedBox(width: 10,),
 
 

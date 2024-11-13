@@ -9,7 +9,7 @@ List<Map> lm = [{'image':'https://blogger.googleusercontent.com/img/b/R29vZ2xl/A
 
 class Home extends StatelessWidget {
    const Home({super.key});
-   static const double smallTextSize = 15.0;
+   static const double smallTextSize = 12.5;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +24,7 @@ class Home extends StatelessWidget {
 
               //Black Hole
                const ListTile(
+
                  leading: Text('Black Hole',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),),
                  trailing: Text('see more',style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic,color: Colors.blue,fontSize: smallTextSize),),
                ),

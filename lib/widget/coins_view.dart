@@ -12,7 +12,8 @@ class CoinsView extends StatelessWidget {
             padding: EdgeInsets.all(8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.purple,
+              color: Theme.of(context).highlightColor,
+
 
             ),
             alignment: Alignment.center,

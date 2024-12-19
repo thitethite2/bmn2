@@ -9,7 +9,7 @@ class CoinsView extends StatelessWidget {
     return Expanded(
         flex: 1,
         child: Container(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Theme.of(context).highlightColor,
@@ -19,7 +19,7 @@ class CoinsView extends StatelessWidget {
             alignment: Alignment.center,
             child: Column(
               children: [
-                Text(value,style: TextStyle(color: Colors.white,fontSize: 18),),
+                Text(value,style: const TextStyle(color: Colors.white,fontSize: 18),),
                 Text(label,style: TextStyle(color: Colors.blueGrey[200],fontSize: 10)),
 
               ],

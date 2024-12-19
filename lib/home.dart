@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
                  leading: Text('Black Hole',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),),
                  trailing: Text('see more',style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic,color: Colors.blue,fontSize: smallTextSize),),
                ),
-                Container(
+                SizedBox(
                   height: 200,
                   child: ListView.builder(
                     itemCount: lm.length,
@@ -38,14 +38,14 @@ class Home extends StatelessWidget {
                     },
                   ),
                 ),
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
 
                 //Vooc
                 const ListTile(
                   leading: Text('Vooc Translation',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),),
                   trailing: Text('see more',style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic,color: Colors.blue,fontSize: smallTextSize),),
                 ),
-                Container(
+                SizedBox(
                   height: 200,
                   child: ListView.builder(
                     itemCount: lm.length,
@@ -61,7 +61,7 @@ class Home extends StatelessWidget {
                   leading: Text('Wave',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),),
                   trailing: Text('see more',style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic,color: Colors.blue,fontSize: smallTextSize),),
                 ),
-                Container(
+                SizedBox(
                   height: 200,
                   child: ListView.builder(
                     itemCount: lm.length,
@@ -81,32 +81,18 @@ class Home extends StatelessWidget {
     );
   }
 }
-Widget cardBulider(String im_link){
+Widget cardBulider(String imLink){
   return AspectRatio(
     aspectRatio: 2/3,
     child: Container(
 
       margin: const EdgeInsets.only(right: 8),
       decoration: BoxDecoration(
-
+        border:Border.all(color: Colors.black),
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-        image: DecorationImage(image: NetworkImage(im_link),fit:BoxFit.fill),
-        boxShadow:[
-          BoxShadow(
-          color: Colors.grey,
-          offset: Offset(4.0,4.0),
-          blurRadius: 15.0,
-          spreadRadius: 1.0
-
-      ),
-        BoxShadow(
-            offset: Offset(-4.0,-4.0),
-            color: Colors.white,
-            blurRadius: 15.0,
-            spreadRadius: 1.0
-        )
-        ]
+        borderRadius: BorderRadius.circular(5),
+        image: DecorationImage(image: NetworkImage(imLink),fit:BoxFit.fill),
+        
       ),
     ),
   );

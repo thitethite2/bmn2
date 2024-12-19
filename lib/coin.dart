@@ -10,11 +10,11 @@ class Coin extends StatefulWidget {
 class _CoinState extends State<Coin> {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Column(
+    return const Center(child: Column(
       children: [
         SizedBox(height: 30,),
         Padding(
-          padding: const EdgeInsets.only(left:10.0,right: 10.0),
+          padding: EdgeInsets.only(left:10.0,right: 10.0),
           child: Row(
 
               children: [

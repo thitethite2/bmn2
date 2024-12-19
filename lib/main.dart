@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Bmn Beta version',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         highlightColor: const Color.fromRGBO(50, 53, 50, 1),
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
 
         
       ),
-      home:  const MyHomePage(title: 'BMN '),
+      home:  const MyHomePage(title: 'BMN -beta version'),
     );
   }
 }

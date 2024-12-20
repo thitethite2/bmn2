@@ -2,6 +2,7 @@
 import 'package:bmn_flutter/account_center.dart';
 import 'package:bmn_flutter/coin.dart';
 import 'package:bmn_flutter/BookMark.dart';
+import 'package:bmn_flutter/discovery.dart';
 import 'package:bmn_flutter/home.dart';
 import 'package:bmn_flutter/widget/text_style.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
      const Home(),const BookMark(),const Coin(),const AccountCenter()
   ];
   int _currentPage = 0;
+
 
   @override
   Widget build(BuildContext context) {

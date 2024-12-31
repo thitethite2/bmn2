@@ -2,7 +2,6 @@
 import 'package:bmn_flutter/account_center.dart';
 import 'package:bmn_flutter/coin.dart';
 import 'package:bmn_flutter/BookMark.dart';
-import 'package:bmn_flutter/discovery.dart';
 import 'package:bmn_flutter/home.dart';
 import 'package:bmn_flutter/widget/text_style.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         highlightColor: const Color.fromRGBO(50, 53, 50, 1),
         useMaterial3: true,
-        primaryColor: const Color.fromRGBO(209, 21, 181, 1),
+        primaryColor: const Color.fromRGBO(208, 208, 208, 1.0),
         primaryColorLight: Colors.white,
 
         

@@ -7,26 +7,43 @@ class BookItem extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200,
-      child: GestureDetector(
+    return  GestureDetector(
         onTap: (){
           Navigator.push(context, MaterialPageRoute(builder: (context)=>Info(book_id: title)));
         },
-        child: Card(
-            elevation: 5,
-            color: Colors.grey[400],
+        child: Container(
+           margin: EdgeInsets.only(left: 30,right: 30,bottom: 40),
+            width: 100,
+            decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(15),
+
+                boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.shade500,
+                  offset: const Offset(6, 6),
+                  spreadRadius: 1,
+                  blurRadius: 5.0
+                ),
+                const BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(-3, -3),
+                  spreadRadius: 1.5,
+                  blurRadius: 5.0
+                )
+              ]
+            ),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  child: Image(image: NetworkImage(image ),fit:BoxFit.fill),
-                  padding: const EdgeInsets.all(8),
-                  margin: const EdgeInsets.all(8),
-                  width: 120,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.grey[300],
+                ClipRRect(
+
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(20),bottomLeft: Radius.circular(20)),
+                  child: Image(
+                      image: NetworkImage(image, ),
+                      fit:BoxFit.fill,
+                    width: 120,
+
 
                   ),
 
@@ -35,26 +52,27 @@ class BookItem extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      //crossAxisAlignment: CrossAxisAlignment.start,
+                      //mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
                           title,
-                          style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w500),
+                          style: const TextStyle(fontSize: 15,fontWeight: FontWeight.w500),
                         ),
                         const SizedBox(height: 20),
                         const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Latest Chapter'),
-                            Text('128',style: TextStyle(fontStyle: FontStyle.italic)),
+                            Text('Latest Chapter',style: TextStyle(fontSize: 10),),
+                            Text('128',style: TextStyle(fontStyle: FontStyle.italic,fontSize: 10)),
                           ],
                         ),
 
                         const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Status'),
-                            Text('Ongoing',style: TextStyle(fontStyle: FontStyle.italic)),
+                            Text('Status',style: TextStyle(fontSize: 10),),
+                            Text('Ongoing',style: TextStyle(fontStyle: FontStyle.italic,fontSize: 10)),
                           ],
                         )
                       ],
@@ -64,7 +82,7 @@ class BookItem extends StatelessWidget {
               ],
             )
         ),
-      ),
-    );
+      );
+
   }
 }

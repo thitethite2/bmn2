@@ -1,18 +1,32 @@
 import 'package:bmn_flutter/info.dart';
 import 'package:flutter/material.dart';
+import "package:flutter_svg/flutter_svg.dart";
 
 class BookItem extends StatelessWidget {
-  const BookItem({super.key,required this.image,required this.title});
+
+  const BookItem({
+    super.key,
+    required this.status,
+    required this.image,
+    required this.title,
+    required this.latestChapter,
+    required this.manhuaId,
+
+  });
   final String image;
   final String title;
+  final String status;
+  final String latestChapter;
+  final String manhuaId;
+
   @override
   Widget build(BuildContext context) {
     return  GestureDetector(
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>Info(book_id: title)));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>Info(book_id: manhuaId)));
         },
         child: Container(
-           margin: EdgeInsets.only(left: 30,right: 30,bottom: 40),
+           margin: const EdgeInsets.only(left: 30,right: 30,bottom: 40),
             width: 100,
             decoration: BoxDecoration(
                 color: Colors.grey[300],
@@ -38,11 +52,21 @@ class BookItem extends StatelessWidget {
               children: [
                 ClipRRect(
 
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(20),bottomLeft: Radius.circular(20)),
+                  borderRadius: const BorderRadius.only(topLeft: Radius.circular(20),bottomLeft: Radius.circular(20)),
                   child: Image(
-                      image: NetworkImage(image, ),
+                      image: NetworkImage(image,),
                       fit:BoxFit.fill,
                     width: 120,
+                    height:  170,
+                    errorBuilder:(BuildContext context ,Object error, StackTrace? stackTrace){
+                        return SvgPicture.asset(
+                        'assets/images/bannerPlaceholder.svg',
+                          width:120,
+                          height: 170,
+                          fit: BoxFit.cover,
+                        );
+
+                    },
 
 
                   ),
@@ -60,19 +84,19 @@ class BookItem extends StatelessWidget {
                           style: const TextStyle(fontSize: 15,fontWeight: FontWeight.w500),
                         ),
                         const SizedBox(height: 20),
-                        const Row(
+                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Latest Chapter',style: TextStyle(fontSize: 10),),
-                            Text('128',style: TextStyle(fontStyle: FontStyle.italic,fontSize: 10)),
+                            const Text('Latest Chapter',style: TextStyle(fontSize: 10),),
+                            Text(latestChapter,style: const TextStyle(fontStyle: FontStyle.italic,fontSize: 10)),
                           ],
                         ),
 
-                        const Row(
+                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Status',style: TextStyle(fontSize: 10),),
-                            Text('Ongoing',style: TextStyle(fontStyle: FontStyle.italic,fontSize: 10)),
+                            const Text('Status',style: TextStyle(fontSize: 10),),
+                            Text(status,style: const TextStyle(fontStyle: FontStyle.italic,fontSize: 10)),
                           ],
                         )
                       ],

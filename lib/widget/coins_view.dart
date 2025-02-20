@@ -13,6 +13,13 @@ class CoinsView extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Theme.of(context).highlightColor,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.2),
+                  blurRadius: 5,
+                  offset: const Offset(0, 3),
+                ),
+              ],
 
 
             ),

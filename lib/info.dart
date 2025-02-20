@@ -10,13 +10,6 @@ import 'package:http/http.dart' as http;
 import 'models/manhua.dart';
 
 String manhuaId = "";
-List<Map<String,String>> chapters = [
-  {'name':"chapter 1",'count' : '1'},
-  {'name':"chapter 2",'count' : '2'},
-  {'name':"chapter 3",'count' : '3'},
-  {'name':"chapter 4",'count' : '4'},
-  {'name':"chapter 5",'count' : '5'},
-];
 
 
 
@@ -77,7 +70,7 @@ class _InfoBodyState extends State<InfoBody> {
        }
   }
 
-  Future<Manhua?> fetchManhua() async{
+  Future<Manhua> fetchManhua() async{
     final response = await http.get(Uri.parse(api));
     if (response.statusCode == 200){
       Map<String,dynamic> json = jsonDecode(response.body);
@@ -103,11 +96,12 @@ class _InfoBodyState extends State<InfoBody> {
                   future: manhua,
                   builder: (context,snapshot){
                     if (snapshot.hasData){
-                      Manhua? manhua = snapshot.data;
+                      Manhua manhua = snapshot.data!;
                       return InfoContent(
-                          preview_image:manhua!.previewImage,
-                          description: manhua!.description,
-                          title: manhua!.title);
+
+                          preview_image:manhua.previewImage,
+                          description: manhua.description,
+                          title: manhua.title);
                     } else if (snapshot.hasError){
                       return  Text("some error on the snapshot ${snapshot.error.toString()}");
                     }
@@ -124,8 +118,16 @@ class _InfoBodyState extends State<InfoBody> {
                   future: chapters,
                   builder: (context,snapshot) {
                     if(snapshot.hasData){
-                      //return
+                      List<Chapter> chapters = snapshot.data!;
+                     return Column(
+                       children: ChapterViewsBulider.build_list(chapters, context,manhuaId:manhuaId),
+                     );
+                    } else if (snapshot.hasError){
+                      return Text("chapters load failed reson : ${snapshot.error}");
                     }
+                    return const Center(
+                      child: Text('Loading chapters....'),
+                    );
                   }
               )
 

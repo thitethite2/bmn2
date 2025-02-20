@@ -43,9 +43,9 @@ class InfoContent extends StatelessWidget {
           child: Text(
             description,
             style: const TextStyle(
-                fontStyle: FontStyle.italic,
+
                 fontWeight: FontWeight.w800,
-                fontSize: 10),
+                fontSize: 12),
           ),
         ),
 

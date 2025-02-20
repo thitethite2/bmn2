@@ -1,4 +1,4 @@
-import 'package:bmn_flutter/info.dart';
+import 'package:bmn_flutter/script/info_navigator.dart';
 import 'package:flutter/material.dart';
 import "package:flutter_svg/flutter_svg.dart";
 
@@ -23,7 +23,7 @@ class BookItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return  GestureDetector(
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>Info(book_id: manhuaId)));
+          Infonavigator(context, manhuaId);
         },
         child: Container(
            margin: const EdgeInsets.only(left: 30,right: 30,bottom: 40),

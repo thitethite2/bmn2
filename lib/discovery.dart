@@ -31,7 +31,6 @@ class MyGrid extends StatefulWidget {
 
 class _MyGridState extends State<MyGrid> {
 
-  String api = "${Myapp.content_api}manhua";
 
   late Future<List<Manhuas>> futureManhuas;
 
@@ -42,6 +41,7 @@ class _MyGridState extends State<MyGrid> {
   }
 
   Future<List<Manhuas>> fetchManhuas() async {
+    String api = "${Myapp.content_api}manhua/manhuas/${widget.title}";
 
     final response = await http.get(Uri.parse(api));
     if (response.statusCode == 200){
@@ -49,7 +49,7 @@ class _MyGridState extends State<MyGrid> {
       return data.map((json) => Manhuas.fromJson(json)).toList();
     }
     else{
-      throw Exception('Failler to Load manhuas');
+      throw Exception('Failler to Load manhuas ${api}');
     }
 
   }
@@ -92,7 +92,7 @@ class _MyGridState extends State<MyGrid> {
 
             }
 
-           return CircularProgressIndicator();
+           return Center(child: CircularProgressIndicator());
 
           },
 

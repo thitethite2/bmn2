@@ -1,10 +1,12 @@
 
-import 'package:bmn_flutter/account_center.dart';
+import 'package:bmn_flutter/main_screens/account_center.dart';
 import 'package:bmn_flutter/coin.dart';
-import 'package:bmn_flutter/BookMark.dart';
+import 'package:bmn_flutter/book_mark.dart';
 import 'package:bmn_flutter/home.dart';
 import 'package:bmn_flutter/widget/text_style.dart';
 import 'package:flutter/material.dart';
+
+import 'book_mark.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
 
         
       ),
-      home:  const MyHomePage(title: 'BMN -beta version'),
+      home:  const MyHomePage(title: 'BMN'),
     );
   }
 }

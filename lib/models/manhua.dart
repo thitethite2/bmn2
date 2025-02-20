@@ -1,5 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+
 
 import 'manhuas.dart';
 
@@ -42,27 +41,14 @@ class Chapter {
   final String title;
   final String count;
   final String chapterId;
-  Chapter({required this.chapterId,required this.title,required this.count});
+  Chapter({required this.title,required this.chapterId,required this.count});
 
   factory Chapter.fromJson(Map<String,dynamic> json){
     return Chapter(title : json['title'], count:json['count'],chapterId: json['chapterId']);
   }
 
-  static Widget Viewbulider(Chapter chapter){
-       return  Card(
-         child: ListTile(
-           title: Text(chapter.title),
-           trailing: Container(
-             width: 50,
-             child: Row(
-               children: [
-                 Text(chapter.count),
-                 Icon(Icons.arrow_right)
-               ],
-             ),
-           ),
-         ),
-       );
-  }
+
 
 }
+
+

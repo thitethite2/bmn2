@@ -10,7 +10,7 @@ class HeadingBulider extends StatelessWidget {
   void seeMore(String channel,BuildContext context){
     Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Discovery(channel_name: channel,))
+        MaterialPageRoute(builder: (context) => Discovery(channel_name: channel))
     );
   }
 
